@@ -1,0 +1,333 @@
+﻿<div class="pending">
+    <div class="top">
+      <div class="searchbox">
+        <div class="search-btn">
+          <form action="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+            <g clip-path="url(#clip0_1222_37470)">
+              <path d="M6 11.5C9.03757 11.5 11.5 9.03757 11.5 6C11.5 2.96243 9.03757 0.5 6 0.5C2.96243 0.5 0.5 2.96243 0.5 6C0.5 9.03757 2.96243 11.5 6 11.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M13.5 13.5L10 10" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+            <defs>
+              <clippath id="clip0_1222_37470">
+                <rect width="14" height="14" fill="white"></rect>
+              </clippath>
+            </defs></svg> <input type="text" placeholder="Search products here..." name="">
+          </form>
+        </div>
+      </div>
+      <div class="category">
+        <input type="text" class="textBox" placeholder="Category" readonly>
+        <div class="option">
+          <div onclick="show('Keychain')">
+            Keychain
+          </div>
+          <div onclick="show('Accessories')">
+            Accessories
+          </div>
+          <div onclick="show('Flowers')">
+            Flowers
+          </div>
+          <div onclick="show('Others')">
+            Others
+          </div>
+        </div>
+      </div>
+      <div class="add-product">
+        <div class="add-btn">
+          <svg id="add" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+          <g clip-path="url(#clip0_1222_32475)">
+            <path d="M10.946 13.5C10.6699 13.5 10.446 13.2761 10.446 13C10.446 12.7239 10.6699 12.5 10.946 12.5C11.2222 12.5 11.446 12.7239 11.446 13C11.446 13.2761 11.2222 13.5 10.946 13.5Z" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M4.44605 13.5C4.16991 13.5 3.94604 13.2761 3.94604 13C3.94604 12.7239 4.16991 12.5 4.44605 12.5C4.7222 12.5 4.94605 12.7239 4.94605 13C4.94605 13.2761 4.7222 13.5 4.44605 13.5Z" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M9.60449 6.5H6.60449" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M8.10449 5V8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M0.5 0.5H3L3.26316 3M3.26316 3L3.90576 9.10468C3.95933 9.61363 4.3885 10 4.90026 10H11.2192C11.6781 10 12.0781 9.6877 12.1894 9.24254L13.4394 4.24254C13.5972 3.61139 13.1198 3 12.4692 3H3.26316Z" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+          <defs>
+            <clippath id="clip0_1222_32475">
+              <rect width="14" height="14" fill="white"></rect>
+            </clippath>
+          </defs></svg> <button class="add-prod">Create Order</button>
+        </div>
+      </div><!-- create transaction pop-up -->
+      <div class="pop-up">
+        <div class="close-btn">
+          ×
+        </div>
+
+        <div class="add-form">
+          <h2>Create Transaction</h2>
+          <div class="row">
+            <div class="product-form">
+              <input type="number" id="prodID" placeholder="Product ID"> <label for="productID">Product ID</label>
+            </div>
+            <div class="product-form">
+              <input type="number" id="customer-id" placeholder="Customer ID"> <label for="customerID">Customer ID</label>
+            </div>
+            <div class="product-form">
+              <input type="text" id="prodName" placeholder="Product Name"> <label for="prodName">Product Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="product-form">
+              <input type="text" id="color" placeholder="Color"> <label for="color">Color</label>
+            </div>
+            <div class="product-form">
+              <input type="number" id="quantity" placeholder="Quantity"> <label for="quantity">Quantity</label>
+            </div>
+            <div class="product-form">
+              <input type="number" id="price" placeholder="Price"> <label for="price">Product Price</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="product-form">
+              <input type="date" id="date" placeholder="Date"> <label for="prod-cost">Date</label>
+            </div>
+            <div class="product-form">
+              <select id="prod-status" name="prod-status">
+                  <option value="" disabled selected>Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="delivered">Delivered</option>
+                  <option value="cancelled">Cancelled</option>
+              </select>
+              <label for="prod-status">Product Status</label>
+            </div>
+            <div class="product-form">
+              <input type="number" id="total" placeholder="Total Amount"> <label for="total">Total Amount</label>
+            </div>
+          </div>
+          <div class="product-form">
+            <button type="submit" id="add-btn2">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- table -->
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Product ID</th>
+            <th>Customer ID</th>
+            <th>Product Name</th>
+            <th>Color</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Total Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>01</td>
+            <td>01</td>
+            <td>Sunflower</td>
+            <td>Yellow</td>
+            <td class="quantity">
+              <div class="minus">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+                <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div><span class="num">3</span>
+              <div class="add">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+                <g clip-path="url(#clip0_1222_36554)">
+                  <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+                <defs>
+                  <clippath id="clip0_1222_36554">
+                    <rect width="14" height="14" fill="white"></rect>
+                  </clippath>
+                </defs></svg>
+              </div>
+            </td>
+            <td>80.00</td>
+            <td>2024-01-17</td>
+            <td>Pending</td>
+            <td>210.00</td>
+            <td class="edit">
+              <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+              <g clip-path="url(#clip0_1222_37671)">
+                <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+              <defs>
+                <clippath id="clip0_1222_37671">
+                  <rect width="14" height="14" fill="white"></rect>
+                </clippath>
+              </defs></svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- category button -->
+  <script>
+    function show(anything) {
+    document.querySelector('.textBox').value = anything;
+    }
+
+    let category = document.querySelector('.category');
+    category.onclick = function(){
+    category.classList.toggle('active');
+    }
+  </script> 
+
+@* add and edit button *@
+  <script>
+  // Function to handle edit button click
+function handleEditButtonClick(row) {
+    // Get product information from the table row
+    const productID = parseInt(row.querySelector('td:nth-child(2)').innerText);
+    const customerID = parseInt(row.querySelector('td:nth-child(3)').innerText);
+    const productName = row.querySelector('td:nth-child(4)').innerText;
+    const color = row.querySelector('td:nth-child(5)').innerText;
+    const quantity = parseInt(row.querySelector('.quantity .num').innerText);
+
+    // Clean up the price string and parse it
+    const priceText = row.querySelector('td:nth-child(7)').innerText.replace(/[^\d.]/g, '');
+    const price = parseFloat(priceText).toFixed(2);
+
+    // Extract date and status from the table row
+    const date = row.querySelector('td:nth-child(8)').innerText; // Assuming date is in the 8th column, update if needed
+    const status = row.querySelector('td:nth-child(9)').innerText;
+
+    const totalAmount = (quantity * parseFloat(price)).toFixed(2);
+
+    // Populate the form fields
+    document.getElementById('prodID').value = productID;
+    document.getElementById('customer-id').value = customerID;
+    document.getElementById('prodName').value = productName;
+    document.getElementById('color').value = color;
+    document.getElementById('quantity').value = quantity;
+    document.getElementById('price').value = price;
+    document.getElementById('date').value = date;
+    document.getElementById('prod-status').value = status; // Set the status in the dropdown
+    document.getElementById('total').value = totalAmount;
+
+    // Set button text to "Save Edit"
+    document.querySelector('#add-btn2').innerText = 'Save Edit';
+
+    // Display the pop-up
+    openPopup('Edit Transaction', true);
+}
+
+
+  // Function to open popup
+  function openPopup(title, isEdit = false) {
+    const popup = document.querySelector('.pop-up');
+    const formTitle = document.querySelector('.pop-up h2');
+    const submitButton = document.querySelector('#add-btn2');
+
+    // Set form title
+    formTitle.innerText = title;
+
+    // Set button text to "Add Transaction" for new entries
+    if (!isEdit) {
+        submitButton.innerText = 'Add Transaction';
+    }
+
+    // Open the popup
+    popup.classList.add('active');
+  }
+
+  // Function to handle form submission
+  function handleFormSubmission() {
+    // Add your logic for form submission here
+    console.log('Form submitted');
+
+    // Close the popup
+    document.querySelector('.pop-up').classList.remove('active');
+  }
+
+  // Event listener for popup and form submission
+  document.querySelector(".add-product .add-btn button").addEventListener("click", function () {
+    // Reset form fields and set button text to "Add Transaction"
+    document.getElementById('prodID').value = '';
+    document.getElementById('customer-id').value = '';
+    document.getElementById('prodName').value = '';
+    document.getElementById('color').value = '';
+    document.getElementById('quantity').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('prod-status').value = '';
+    document.getElementById('total').value = '';
+    document.querySelector('#add-btn2').innerText = 'Add Transaction';
+
+    openPopup('Create Transaction');
+  });
+
+  // Close button event listener
+  document.querySelector('.close-btn').addEventListener('click', function () {
+    // Close the popup
+    document.querySelector('.pop-up').classList.remove('active');
+  });
+
+  // Attach click event listeners to each edit button in the table
+  document.querySelectorAll('.edit-btn').forEach((editButton, index) => {
+    editButton.addEventListener('click', () => {
+        // Get the corresponding table row
+        const row = editButton.closest('tr');
+        handleEditButtonClick(row);
+    });
+  });
+
+  // Event listener for form submission button
+  document.getElementById('add-btn2').addEventListener('click', function () {
+    // Add your logic for form submission here
+    console.log('Form submitted');
+
+    // Close the popup
+    document.querySelector('.pop-up').classList.remove('active');
+  });
+
+  // Event listener for quantity change
+  document.getElementById('quantity').addEventListener('input', function () {
+    updateTotalAmount();
+  });
+
+  // Event listener for price change
+  document.getElementById('price').addEventListener('input', function () {
+    updateTotalAmount();
+  });
+
+  // Function to update total amount based on quantity and price
+  function updateTotalAmount() {
+    const quantity = parseInt(document.getElementById('quantity').value);
+    const price = parseFloat(document.getElementById('price').value);
+
+    const totalAmount = (quantity * price).toFixed(2);
+
+    // Update the total amount field
+    document.getElementById('total').value = totalAmount;
+  }
+  </script> 
+
+  <!-- quantity button -->
+  <script>
+    document.querySelectorAll(".quantity").forEach((quantity) => {
+        const add = quantity.querySelector(".add");
+        const minus = quantity.querySelector(".minus");
+        const num = quantity.querySelector(".num");
+
+        // Initialize 'a' with the initial quantity value
+        let a = parseInt(num.innerText);
+
+        add.addEventListener("click", () => {
+            a = (a < 200) ? a + 1 : 200;
+            num.innerText = a.toString();
+            console.log(a);
+        });
+
+        minus.addEventListener("click", () => {
+            a = (a > 0) ? a - 1 : 0;
+            num.innerText = a.toString();
+        });
+    });
+</script>

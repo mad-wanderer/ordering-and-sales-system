@@ -1,0 +1,893 @@
+/* ----- BODY ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+:root {
+    --body-color: #EEEFEF;
+    --sidebar-color: white;
+    --primary-color: #693184;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: black;
+    --hover-color: #967BA2;
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: var(--body-color);
+}
+
+
+.content {
+    display: flex;
+    height: 100%;
+    /*    width: 100%;*/
+}
+
+.container {
+    height: 100%;
+    padding: 5px 25px;
+    flex: 1;
+    overflow: hidden;
+}
+
+main {
+}
+
+
+.container .renderBody {
+    height: 96%;
+    width: 100%;
+}
+
+nav .nav-items ul li {
+    display: inline;
+}
+
+nav .nav-items ul .text1 {
+    padding-right: 25px;
+    border-right: 2px solid var(--body-color);
+}
+
+nav .nav-items ul .text {
+    margin-right: 50px;
+}
+
+nav .nav-items li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    padding: 10px 8px;
+    border-radius: 8px;
+}
+
+    nav .nav-items li a:hover,
+    nav .nav-items li a:focus {
+        color: #000;
+    }
+
+.navbar {
+    background-color: var(--sidebar-color);
+    height: 55px;
+    width: 100%;
+    border-bottom: 2px solid var(--body-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+div.logo img {
+    width: 70px;
+    position: absolute;
+    display: flex;
+    top: -8px;
+    left: 90px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100%;
+    flex-basis: 230px;
+    padding: 15px 24px;
+    background-color: var(--sidebar-color);
+}
+
+.menu ul li a svg {
+    stroke: var(--text-color);
+}
+
+.sidebar .title {
+    font-size: 12px;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.menu ul li {
+    list-style: none;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+    .menu ul li a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 14px;
+        padding: 10px 8px;
+        border-radius: 8px;
+        transition: var(--tran-02);
+    }
+
+.menu .submenu.show {
+    display: block;
+}
+
+.menu ul li a:hover,
+.menu ul li.active > a,
+.menu ul li.active:hover > a,
+.menu ul li > a:hover svg,
+.menu ul li.active > a svg,
+.menu ul li.active:hover > a svg {
+    background-color: var(--body-color);
+    color: #000;
+    stroke: #000;
+    transition: var(--tran-02);
+}
+
+
+/* .menu .submenu li.active a,
+.menu .submenu li:hover.active a {
+  background-color: var(--primary-color); /* Adjust as needed 
+  color: white;
+  stroke: white;
+} */
+
+.menu ul li #dropdown.show {
+    font-size: 14px;
+    transition: var(--tran-04);
+    right: 30px;
+}
+
+.menu ul li.active #dropdown.show {
+    transform: rotate(180deg);
+    transition: var(--tran-04);
+}
+
+.menu .submenu {
+    display: none;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: 1px solid var(--body-color);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+.menu .title {
+    /* border-top: 2px solid var(--body-color); */
+    padding-top: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+    .menu .title #dropdown {
+        transition: transform 0.3s ease;
+    }
+
+    .menu .title.active #dropdown {
+        transform: rotate(180deg);
+    }
+
+.menu .signout {
+    position: fixed;
+    bottom: 0;
+}
+/* ----- INVENTORY PANEL ----- */
+
+.inventory {
+    background-color: var(--body-color);
+    max-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.searchbox {
+    margin-top: 10px;
+    width: 300px;
+    padding: 8px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+}
+
+    .searchbox input {
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    .searchbox .search-text {
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+svg {
+    margin-left: 7px;
+    margin-right: 10px;
+}
+
+/*category dropdown*/
+
+.category {
+    margin-left: 13px;
+    margin-top: 10px;
+    width: 150px;
+    padding: 8px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    position: relative;
+}
+
+    .category::before {
+        content: '';
+        position: absolute;
+        right: 20px;
+        top: 14px;
+        z-index: 10000;
+        width: 4px;
+        height: 4px;
+        border: 2px solid #333;
+        border-top: 2px solid transparent;
+        border-right: 2px solid transparent;
+        transform: rotate(-45deg);
+        transition: 0.3s ease;
+        pointer-events: none;
+    }
+
+    .category.active::before {
+        top: 18px;
+        transform: rotate(-225deg);
+    }
+
+    .category.active .option {
+        display: block;
+    }
+
+    .category input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        padding: 12px 15px;
+    }
+
+    .category .option {
+        position: absolute;
+        right: 1px;
+        top: 45px;
+        width: 100%;
+        background: var(--sidebar-color);
+        box-shadow: 0 30px 30px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        font-size: 14px;
+        overflow: hidden;
+        display: none;
+        z-index: 1;
+    }
+
+        .category .option div {
+            border-bottom: 1px solid var(--body-color);
+        }
+
+        .category .option div {
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+            .category .option div:hover {
+                background: var(--body-color);
+            }
+
+/*add product button*/
+
+button.add-prod {
+    /* background: red; */
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--sidebar-color);
+}
+
+.add-product {
+    margin-left: auto;
+    right: 5px;
+    margin-top: 10px;
+    width: 150px;
+    padding: 8px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    display: flex;
+    color: var(--sidebar-color);
+}
+
+svg#add {
+    stroke: var(--sidebar-color);
+    cursor: pointer;
+}
+
+.add-product .add-text {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.pop-up {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 500px;
+    padding: 30px 20px;
+    background-color: var(--body-color);
+    box-shadow: 0 0 0 100000px rgba(0,0,0,.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+    z-index: 1;
+}
+
+    .pop-up.active {
+        top: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
+    }
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pop-up .close-btn {
+    font-size: 25px;
+    position: absolute;
+    top: 12px;
+    right: 13px;
+    width: 25px;
+    height: 25px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    line-height: 26px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.pop-up .row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adjust the gap between elements in a row */
+}
+
+.pop-up .product-form {
+    margin: 5px 0;
+}
+
+    .pop-up .product-form label {
+        font-size: 10px;
+        color: var(--text-color);
+        position: relative;
+        margin-left: 8px;
+        bottom: 5px;
+    }
+
+    .pop-up .product-form select,
+    .pop-up .product-form input[type="date"],
+    .pop-up .product-form input[type="number"],
+    .pop-up .product-form input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 7px;
+        outline: none;
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+    }
+
+    .pop-up .product-form input#prod-name {
+        width: 220px;
+    }
+
+    .pop-up .product-form input#category {
+        width: 138px;
+    }
+
+button#add-btn2 {
+    background: var(--primary-color);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.customer .table,
+.history .table,
+.pending .table,
+.inventory .table {
+    background-color: var(--sidebar-color);
+    border-radius: 30px;
+    height: 50%;
+    padding: 0 28px;
+    overflow: auto;
+    height: 565px;
+    position: relative;
+}
+
+th {
+    text-align: center;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-bottom: 20px; /* Adjust the margin as needed */
+    position: sticky;
+    top: 0px;
+    border-bottom: 1px solid var(--body-color);
+    background-color: var(--sidebar-color); /* Set the background color to match the table */
+    /* z-index: 2; /* Ensure the header stays on top of other elements */
+}
+
+td {
+    font-weight: 400;
+    border-bottom: 1px solid var(--body-color);
+    white-space: nowrap;
+}
+
+.inventory th,
+.inventory td {
+    padding: 10px 35px;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+
+.quantity {
+    display: inline-flex;
+}
+
+    .quantity svg {
+        stroke: var(--sidebar-color);
+        stroke-width: 3;
+        width: 7px;
+        border-radius: 3px;
+    }
+
+    .quantity .minus {
+        background-color: #D10000;
+    }
+
+    .quantity .add {
+        background-color: #1560BD;
+    }
+
+    .quantity .add,
+    .quantity .minus {
+        height: 18px;
+        width: 20px;
+        border-radius: 4px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .quantity .num {
+        width: 20px;
+        text-align: center;
+    }
+
+.edit svg {
+    stroke: var(--sidebar-color);
+    stroke-width: 1px;
+    padding: 3px;
+    border-radius: 3px;
+    background: var(--primary-color);
+}
+
+    .edit svg.edit-btn {
+        height: 18px;
+        width: 20px;
+        border-radius: 4px;
+        margin: 0 7px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+/*----- PENDING ORDERS PANEL -----*/
+
+.pending {
+    background-color: var(--body-color);
+    max-height: 100%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+}
+
+    /*.pending .table {
+    background-color: var(--sidebar-color);
+    border-radius: 30px;
+    height: 50%;
+    padding: 0 28px;
+    overflow: auto;
+    height: 570px;
+    position: relative;
+}*/
+
+    .pending th,
+    .pending td {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
+input#total {
+    width: 150px;
+}
+
+input#prodID {
+    width: 100px;
+}
+
+input#customerID {
+    width: 100px;
+}
+
+input#prodName {
+    width: 240px;
+}
+
+/*----- TRANSACTION HISTORY PANEL -----*/
+
+.history {
+    background-color: var(--body-color);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h2.history {
+    margin-top: 5px;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.history .searchbox {
+    margin-left: auto;
+    margin-top: 10px;
+    width: 300px;
+    padding: 8px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+}
+
+/*.history .table {
+    background-color: var(--sidebar-color);
+    border-radius: 30px;
+    height: 50%;
+    padding: 0 28px;
+    overflow: auto;
+    height: 570px;
+    position: relative;
+    text-align: center;
+}*/
+
+.history th, .history td {
+    padding: 10px 75px;
+    font-size: 15px;
+}
+
+.delete svg {
+    stroke: var(--sidebar-color);
+    stroke-width: 1px;
+    padding: 2px;
+    border-radius: 3px;
+    background-color: #D10000;
+    display: flex;
+}
+
+    .delete svg.del-btn {
+        height: 18px;
+        width: 20px;
+        border-radius: 4px;
+        margin: 0 7px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+/*----- CUSTOMER PANEL -----*/
+.customer {
+    background-color: var(--body-color);
+    max-height: 100%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+}
+
+button.add-customer {
+    /* background: red; */
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--sidebar-color);
+}
+
+.customer th, .customer td {
+    padding: 10px 33px;
+    font-size: 15px;
+    /* margin-right: ; */
+}
+
+/*----- ORDER REPORT PANEL -----*/
+.record {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 60px 20px 60px;
+}
+
+.orderReport .table {
+    /* height: 410px;*/
+    background-color: var(--sidebar-color);
+    border-radius: 30px;
+    height: 50%;
+    padding: 0 40px 0 40px;
+    overflow: auto;
+    height: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.orderReport .total {
+    width: 150px;
+    text-align: center;
+    width: 350px;
+    padding: 30px;
+    background-color: var(--sidebar-color);
+    border-radius: 20px;
+}
+
+.orderReport .inside {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.orderReport .text {
+    font-size: 15px;
+    color: black;
+}
+
+.orderReport .num {
+    font-size: 50px;
+    font-weight: 600;
+    height: 75px;
+    text-align: center;
+}
+
+.orderReport th, .orderReport td {
+    padding: 10px 140px;
+    font-size: 15px;
+}
+
+/*----- SALES REPORT PANEL -----*/
+.total-revenue {
+    margin-top: 15px;
+    /* margin-bottom: 20px; */
+}
+
+.sales .total {
+    padding: 20px;
+    background-color: var(--sidebar-color);
+    border-radius: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.sales .inside {
+    color: var(--primary-color);
+    padding-left: 10px;
+}
+
+.sales .text {
+    font-size: 15px;
+    color: black;
+}
+
+.sales .num {
+    font-size: 40px;
+    font-weight: 600;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.sales .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid var(--body-color);
+}
+
+.one, .two, .three {
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    height: 100px;
+}
+
+.two {
+    width: 600px;
+    border-right: 2px solid var(--body-color);
+    border-left: 2px solid var(--body-color);
+}
+
+.sales .table {
+    background-color: var(--sidebar-color);
+    border-radius: 30px;
+    height: 50%;
+    padding: 0 28px;
+    overflow: auto;
+    height: 350px;
+    position: relative;
+    text-align: center;
+}
+
+.sales th, .sales td {
+    padding: 10px 85px;
+    font-size: 15px;
+}
+
+/*----- DAHSBOARD PANEL -----*/
+.cat-title,
+.flex-title {
+    font-size: 25px;
+    font-weight: 700;
+    margin-left: 15px;
+    color: var(--primary-color);
+}
+
+.dashboard {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+    .dashboard .recent {
+        width: 100%;
+        background-color: var(--sidebar-color);
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .dashboard .table {
+        margin-top: 10px;
+        background-color: var(--sidebar-color);
+        border-radius: 30px;
+        height: 50%;
+        padding: 0 80px;
+        overflow: auto;
+        height: 180px;
+        position: relative;
+        text-align: center;
+    }
+
+    .dashboard th, .dashboard td {
+        padding: 10px 50px;
+        font-size: 15px;
+    }
+
+.best {
+    background-color: white;
+    width: 860px;
+    background-color: var(--sidebar-color);
+    padding: 20px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+    .best .table {
+        margin-top: 10px;
+        background-color: var(--sidebar-color);
+        border-radius: 30px;
+        height: 50%;
+        padding: 0 2px;
+        overflow: auto;
+        height: 180px;
+        position: relative;
+        text-align: center;
+    }
+
+    .best th, .best td {
+        padding: 10px 60px;
+        font-size: 15px;
+    }
+
+.order-two,
+.order-one,
+.container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.categories {
+    background-color: white;
+    width: 380px;
+    background-color: var(--sidebar-color);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.order-two,
+.order-one {
+    margin-top: 10px;
+}
+
+.cat1,
+.cat2,
+.cat3,
+.cat4 {
+    background-color: var(--primary-color);
+    padding: 10px;
+    margin: 5px;
+    width: 150px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.cat-text, .cat-nums {
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.cat-nums {
+    font-size: 30px;
+    font-weight: 600;
+    height: 35px;
+}

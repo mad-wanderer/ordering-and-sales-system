@@ -1,0 +1,92 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+    background: #440d62;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    overflow-y: auto;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+    .sidebar .menu {
+        width: 100%;
+        margin-top: 70px;
+    }
+
+        .sidebar .menu .items {
+            position: relative;
+            cursor: pointer;
+        }
+
+            .sidebar .menu .items a {
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                display: block;
+                padding: 5px 30px;
+                line-height: 60px;
+            }
+
+.menu-btn {
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    top: 20px;
+    padding: 5px 30px;
+    cursor: pointer;
+}
+
+.sidebar #out {
+    position: fixed;
+    bottom: 0;
+    /* background: rgba(202,177,216,0.1);
+    width: 270px; */
+}
+
+.sidebar .menu .items a:hover {
+    background: rgba(202,177,216,0.1);
+    transition: .3s ease;
+    width: 260px;
+}
+
+.sidebar .menu .items a .dropdown {
+    position: absolute;
+    right: 0;
+    padding: 23px;
+    transition: 0.3s ease;
+}
+
+
+.sidebar .menu .items a i {
+    margin-right: 15px;
+}
+
+.sidebar .menu .items .sub-menu {
+    background: rgba(105,49,132,0.1);
+    display: none;
+}
+
+    .sidebar .menu .items .sub-menu a {
+        padding-left: 70px;
+    }
+
+.sidebar .menu .items .sub-item {
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: 0.3s ease;
+}

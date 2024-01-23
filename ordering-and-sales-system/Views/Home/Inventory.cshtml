@@ -1,0 +1,693 @@
+﻿<div class="inventory">
+
+  <div class="top">
+
+  <div class="searchbox">
+      <div class="search-btn">
+        <form action="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <g clip-path="url(#clip0_1222_37470)">
+            <path d="M6 11.5C9.03757 11.5 11.5 9.03757 11.5 6C11.5 2.96243 9.03757 0.5 6 0.5C2.96243 0.5 0.5 2.96243 0.5 6C0.5 9.03757 2.96243 11.5 6 11.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 13.5L10 10" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1222_37470">
+                <rect width="14" height="14" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+            <input type="text" placeholder="Search products here..." name="" />
+            <button type="submit"></button>
+        </form>
+      </div>
+  </div>
+
+  <div class="category">
+      <input type="text" class="textBox" placeholder="Category" readonly >
+      <div class="option">
+        <div onclick="show('Keychain')">Keychain</div>
+        <div onclick="show('Accessories')">Accessories</div>
+        <div onclick="show('Flowers')">Flowers</div>
+        <div onclick="show('Others')">Others</div>
+      </div>
+   </div>
+
+<div class="add-product">
+  <div class="add-btn">
+    <svg id="add" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <g clip-path="url(#clip0_1222_36443)">
+        <path d="M7 4V10"  stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 7H10"  stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.5 0.5H3.5C1.84315 0.5 0.5 1.84315 0.5 3.5V10.5C0.5 12.1569 1.84315 13.5 3.5 13.5H10.5C12.1569 13.5 13.5 12.1569 13.5 10.5V3.5C13.5 1.84315 12.1569 0.5 10.5 0.5Z"  stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_1222_36443">
+          <rect width="14" height="14" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+    <button class="add-prod">Add Product</button>
+  </div>
+</div>
+</div>
+
+<!-- add product pop-up -->
+<div class="pop-up">
+  <div class="close-btn">&times;</div>
+  <div class="add-form">
+    <h2>Add Product</h2>
+    <div class="row">
+      <div class="product-form">
+      <input type="text" id="prod-name" placeholder="Product Name">
+      <label for="name">Product Name</label>
+    </div>
+    <div class="product-form">
+      <select id="category" name="category">
+          <option value="" disabled selected>Category</option>
+          <option value="flower">Flowers</option>
+          <option value="accesories">Accesories</option>
+          <option value="keychain">Keychain</option>
+          <option value="others">Others</option>
+      </select>
+      <label for="prod-status">Product Status</label>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="product-form">
+      <input type="number" id="quantity" placeholder="Quantity">
+      <label for="quantity">Quantity</label>
+    </div>
+    <div class="product-form">
+      <input type="number" id="price" placeholder="Unit Price">
+      <label for="Price">Unit Price</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="product-form">
+      <input type="number" id="prod-cost" placeholder="Product Cost">
+      <label for="prod-cost">Product Cost</label>
+    </div>
+    <div class="product-form">
+      <select id="prod-status" name="prod-status">
+          <option value="" disabled selected>Status</option>
+          <option value="pending">In Stock</option>
+          <option value="delivered">Out of stock</option>
+      </select>
+      <label for="prod-status">Product Status</label>
+  </div>
+  </div>
+    <div class="product-form">
+      <button type="submit" id="add-btn2">Add Product</button>
+    </div>
+  </div>
+</div>
+
+   <div class="table">
+  <table>
+      <thead>
+          <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Product Cost</th>
+              <th>Status</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+              <td>01</td>
+              <td>Sunflower</td>
+              <td>Keychain</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>02</td>
+              <td>Daisy</td>
+              <td>Keychain</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+          <tr>
+              <td>03</td>
+              <td>Tulips</td>
+              <td>Flowers</td>
+              <td class="quantity">
+                  <div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M0.5 7H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></div><span class="num">0</span>
+                  <div class="add"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <g clip-path="url(#clip0_1222_36554)">
+                              <path d="M7 0.5V13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M0.5 6.95996H13.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                              <clipPath id="clip0_1222_36554">
+                                  <rect width="14" height="14" fill="white"/>
+                              </clipPath>
+                          </defs>
+                      </svg></div>
+              </td>
+              <td>70.00</td>
+              <td>50.00</td>
+              <td>Available</td>
+              <td class="edit">
+                  <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <g clip-path="url(#clip0_1222_37671)">
+                          <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </g>
+                      <defs>
+                          <clipPath id="clip0_1222_37671">
+                              <rect width="14" height="14" fill="white"/>
+                          </clipPath>
+                      </defs>
+                  </svg>
+              </td>
+          </tr>
+
+      </tbody>
+  </table>
+</div>
+
+    @* quantity buttons *@
+<script>
+    document.querySelectorAll(".quantity").forEach((quantity) => {
+        const add = quantity.querySelector(".add");
+        const minus = quantity.querySelector(".minus");
+        const num = quantity.querySelector(".num");
+
+        // Initialize 'a' with the initial quantity value
+        let a = parseInt(num.innerText);
+
+        add.addEventListener("click", () => {
+            a = (a < 200) ? a + 1 : 200;
+            num.innerText = a.toString();
+            console.log(a);
+        });
+
+        minus.addEventListener("click", () => {
+            a = (a > 0) ? a - 1 : 0;
+            num.innerText = a.toString();
+        });
+    });
+</script>
+
+    @* category button *@
+<script>
+    function show(anything) {
+    document.querySelector('.textBox').value = anything;
+    }
+
+    let category = document.querySelector('.category');
+    category.onclick = function(){
+    category.classList.toggle('active');
+    }
+</script>
+
+
+    @* add and edit product button *@
+<script>
+// Function to handle edit button click
+function handleEditButtonClick(row) {
+  // Get product information from the table row
+  const productName = row.cells[1].innerText;
+  const category = row.cells[2].innerText;
+  const quantity = parseFloat(row.cells[3].querySelector('.num').innerText.replace(/[^0-9.-]+/g,"")); // Parse as a float
+  const price = parseFloat(row.cells[4].innerText.replace(/[^0-9.-]+/g,"")).toFixed(2); // Format as decimal with two decimal places
+  const materialExpenses = parseFloat(row.cells[5].innerText.replace(/[^0-9.-]+/g,"")).toFixed(2); // Format as decimal with two decimal places
+  const status = row.cells[6].innerText;
+
+  // Populate the form fields
+  document.getElementById('prod-name').value = productName;
+  document.getElementById('category').value = category;
+  document.getElementById('quantity').value = quantity;
+  document.getElementById('price').value = price;
+  document.getElementById('prod-cost').value = materialExpenses;
+  document.getElementById('prod-status').value = status;
+
+  // Set button text to "Save Edit"
+  document.querySelector('#add-btn2').innerText = 'Save Edit';
+
+  // Display the pop-up
+  openPopup('Edit Product', true);
+}
+
+// Function to open popup
+function openPopup(title, isEdit = false) {
+  const popup = document.querySelector('.pop-up');
+  const formTitle = document.querySelector('.pop-up h2');
+  const submitButton = document.querySelector('#add-btn2');
+
+  // Set form title
+  formTitle.innerText = title;
+
+  // Set button text to "Add Product" for new entries
+  if (!isEdit) {
+    submitButton.innerText = 'Add Product';
+  }
+
+  // Open the popup
+  popup.classList.add('active');
+}
+
+// Event listeners for popup and form submission
+document.querySelector(".add-prod").addEventListener("click", function(){
+  // Reset form fields and set button text to "Add Product"
+  document.getElementById('prod-name').value = '';
+  document.getElementById('category').value = '';
+  document.getElementById('quantity').value = '';
+  document.getElementById('price').value = '';
+  document.getElementById('prod-cost').value = '';
+  document.getElementById('prod-status').value = '';
+  document.querySelector('#add-btn2').innerText = 'Add Product';
+
+  openPopup('Add Product');
+});
+
+// Attach click event listeners to each edit button in the table
+document.querySelectorAll('.edit-btn').forEach((editButton, index) => {
+  editButton.addEventListener('click', () => {
+    // Get the corresponding table row
+    const row = editButton.closest('tr');
+    handleEditButtonClick(row);
+  });
+});
+
+document.querySelector(".pop-up .close-btn").addEventListener("click", function(){
+  document.querySelector(".pop-up").classList.remove("active");
+});
+
+document.querySelector("#add-btn2").addEventListener("click", function(){
+  // Add logic to handle form submission here
+  // You can check whether it's an edit or add based on the button text
+  const isEdit = document.querySelector("#add-btn2").innerText === 'Save Edit';
+  if (isEdit) {
+    // Handle edit form submission
+    console.log('Edit form submitted');
+  } else {
+    // Handle add form submission
+    console.log('Add form submitted');
+  }
+
+  document.querySelector(".pop-up").classList.remove("active");
+});
+</script>
