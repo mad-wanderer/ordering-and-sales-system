@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ordering_and_sales_system</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ordering_and_sales_system.css" asp-append-version="true" />
 </head>
 <body>
     <div>
@@ -202,10 +201,10 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
         integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
         crossorigin="anonymous"></script>
-    <script src="site.js"></script>
 
+        <script src="~/js/site.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> 
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>  *@
     <script src="~/js/site.js" asp-append-version="true"></script> 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

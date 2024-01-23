@@ -7,15 +7,15 @@
           <div class="searchbox">
             <div class="search-btn">
               <form action="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <g clip-path="url(#clip0_1222_37470)">
                   <path d="M6 11.5C9.03757 11.5 11.5 9.03757 11.5 6C11.5 2.96243 9.03757 0.5 6 0.5C2.96243 0.5 0.5 2.96243 0.5 6C0.5 9.03757 2.96243 11.5 6 11.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M13.5 13.5L10 10" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
                 </g>
                 <defs>
-                  <clippath id="clip0_1222_37470">
+                  <clipPath id="clip0_1222_37470">
                     <rect width="14" height="14" fill="white"></rect>
-                  </clippath>
+                  </clipPath>
                 </defs></svg> <input type="text" placeholder="Search products here..." name="">
               </form>
             </div>
@@ -100,14 +100,14 @@
                     <td>@customers.PhoneNumber</td>
                     <td>@customers.Address</td>
                     <td class="edit">
-                        <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
+                        <svg class="edit-btn" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <g clip-path="url(#clip0_1222_37671)">
                                 <path d="M5 12.2401L0.5 13.5001L1.76 9.00014L10 0.800143C10.0931 0.704897 10.2044 0.629218 10.3271 0.577551C10.4499 0.525883 10.5818 0.499268 10.715 0.499268C10.8482 0.499268 10.9801 0.525883 11.1029 0.577551C11.2256 0.629218 11.3369 0.704897 11.43 0.800143L13.2 2.58014C13.2937 2.6731 13.3681 2.78371 13.4189 2.90556C13.4697 3.02742 13.4958 3.15813 13.4958 3.29014C13.4958 3.42215 13.4697 3.55286 13.4189 3.67472C13.3681 3.79658 13.2937 3.90718 13.2 4.00014L5 12.2401Z" stroke-linecap="round" stroke-linejoin="round"></path>
                             </g>
                             <defs>
-                                <clippath id="clip0_1222_37671">
+                                <clipPath id="clip0_1222_37671">
                                     <rect width="14" height="14" fill="white"></rect>
-                                </clippath>
+                                </clipPath>
                             </defs>
                         </svg>
                     </td>
@@ -117,143 +117,7 @@
           </tbody>
         </table>
       </div>
-
-      <!-- add customer button -->
-      <script>
-        // Function to handle edit button click
-        function handleEditButtonClick(row) {
-          // Get customer information from the table row
-          const firstName = row.querySelector('td:nth-child(2)').innerText;
-          const lastName = row.querySelector('td:nth-child(3)').innerText;
-          const email = row.querySelector('td:nth-child(4)').innerText;
-          const contactNumber = row.querySelector('td:nth-child(5)').innerText;
-          const address = row.querySelector('td:nth-child(6)').innerText;
-
-          // Populate the form fields
-          document.getElementById('fName').value = firstName;
-          document.getElementById('lName').value = lastName;
-          document.getElementById('email').value = email;
-          document.getElementById('contact').value = contactNumber;
-          document.getElementById('address').value = address;
-
-          // Set button text to "Save Edit"
-          document.querySelector('#add-btn2').innerText = 'Save Edit';
-
-          // Display the pop-up
-          openPopup('Edit Customer', true);
-        }
-
-        // Function to open popup
-        function openPopup(title, isEdit = false) {
-          const popup = document.querySelector('.pop-up');
-          const formTitle = document.querySelector('.pop-up h2');
-          const submitButton = document.querySelector('#add-btn2');
-
-          // Set form title
-          formTitle.innerText = title;
-
-          // Set button text to "Add Customer" for new entries
-          if (!isEdit) {
-            submitButton.innerText = 'Add Customer';
-          }
-
-          // Open the popup
-          popup.classList.add('active');
-        }
-
-        // Event listener for popup and form submission
-        document.querySelector(".add-product .add-btn button").addEventListener("click", function () {
-          // Reset form fields and set button text to "Add Customer"
-          document.getElementById('fName').value = '';
-          document.getElementById('lName').value = '';
-          document.getElementById('email').value = '';
-          document.getElementById('contact').value = '';
-          document.getElementById('address').value = '';
-          document.querySelector('#add-btn2').innerText = 'Add Customer';
-
-          openPopup('Add Customer');
-        });
-
-        // Close button event listener
-        document.querySelector('.close-btn').addEventListener('click', function () {
-          // Close the popup
-          document.querySelector('.pop-up').classList.remove('active');
-        });
-
-        // Attach click event listeners to each edit button in the table
-        document.querySelectorAll('.edit-btn').forEach((editButton) => {
-          editButton.addEventListener('click', () => {
-            // Get the corresponding table row
-            const row = editButton.closest('tr');
-            handleEditButtonClick(row);
-          });
-        });
-
-        // Event listener for form submission button
-        document.getElementById('add-btn2').addEventListener('click', function () {
-          // Add your logic for form submission here
-          console.log('Form submitted');
-
-          // Close the popup
-          document.querySelector('.pop-up').classList.remove('active');
-        });
-      </script>
-
-
-     @* INSERT *@
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            setupAddCustomerForm();
-            setupEditCustomerForm();
-
-            document.querySelector('#add-btn2').addEventListener('click', function (e) {
-                e.preventDefault();
-                // Retrieve input values
-                var firstName = document.getElementById('First_Name').value;
-                var lastName = document.getElementById('Last_Name').value;
-                var email = document.getElementById('Email').value;
-                var contact = document.getElementById('Phone_Number').value;
-                var address = document.getElementById('Address').value;
-
-                var addedCustomerData = {
-                    Customer_ID: "",
-                    First_Name: firstName,
-                    Last_Name: lastName,
-                    Email: email,
-                    Phone_Number: contact,
-                    Address: address
-                };
-
-                // Assuming isError is defined somewhere in your code
-                if (isError == false) {
-                    addCustomerFormSendData(addedCustomerData);
-                    addCustomerPopupOverlay.remove();
-                }
-
-                // Handle exit from edit
-            });
-
-            // Remove the edit pop-up without submitting
-            document.getElementById('exitPopup').addEventListener('click', function () {
-                addCustomerPopupOverlay.remove();
-            });
-        });
-
-        function addCustomerFormSendData(addedCustomerData) {
-            fetch('/Home/AddCustomer', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(addedCustomerData)
-            })
-                .then(data => {
-                    location.reload();
-                    console.log('Customer added successfully:', data);
-                    // Optionally, perform actions after successful customer addition
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-    </script>
+</div>
+@section Scripts {
+    <script src="~/js/customer.js"></script>
+}

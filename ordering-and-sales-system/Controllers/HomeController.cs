@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ordering_and_sales_system.Models;
 using System.Text.Json;
-using ordering_and_sales_system.Domain.Entities;
-using ordering_and_sales_system.Domain.Repositories;    
+using ordering_and_sales_system.Domain.Entities;   
 
 
 namespace ordering_and_sales_system.Controllers
@@ -52,12 +51,14 @@ namespace ordering_and_sales_system.Controllers
             return View(customerModel);
         }
 
-        public IActionResult AddCustomer([FromBody] ICustomers customerData)
+        public IActionResult AddCustomer([FromBody] Customers customerData)
         {
+            Debug.WriteLine("Here");
+            Debug.WriteLine(JsonSerializer.Serialize(customerData));
             // Access service and then send the customerData into the AddCustomer function
             // Terminate connection
             CustomerService customerService = new CustomerService();
-            customerService.AddCustomer(customerData);
+            //customerService.AddCustomer(customerData);
             customerService.Dispose();
 
             return Ok("Success");
@@ -84,4 +85,14 @@ namespace ordering_and_sales_system.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+
+    /*public class Customer
+    {
+        public string? Customer_ID { get; set; }
+        public string? First_Name { get; set; }
+        public string? Last_Name { get; set; }
+        public string? Email { get; set; }
+        public string? Phone_Number { get; set; }
+        public string? Address { get; set; }
+    }*/
 }
