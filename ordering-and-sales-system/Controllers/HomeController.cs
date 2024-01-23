@@ -53,12 +53,13 @@ namespace ordering_and_sales_system.Controllers
 
         public IActionResult AddCustomer([FromBody] Customers customerData)
         {
+            
             Debug.WriteLine("Here");
             Debug.WriteLine(JsonSerializer.Serialize(customerData));
             // Access service and then send the customerData into the AddCustomer function
             // Terminate connection
             CustomerService customerService = new CustomerService();
-            //customerService.AddCustomer(customerData);
+            customerService.AddCustomer(customerData);
             customerService.Dispose();
 
             return Ok("Success");

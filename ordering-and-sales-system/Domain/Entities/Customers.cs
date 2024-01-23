@@ -1,6 +1,6 @@
 ﻿namespace ordering_and_sales_system.Domain.Entities
 {
-    public class Customers
+    public class Customers : ICustomers
     {
         public Customers() { }
 
@@ -16,7 +16,7 @@
 
         public Customers(ICustomers customer)
         {
-            Customer_ID = customer.customerId;
+            Customer_ID = customer.Customer_ID;
             First_Name = customer.First_Name;
             Last_Name = customer.Last_Name;
             Email = customer.Email;
@@ -30,6 +30,7 @@
         public string? Email { get; set; }
         public string? Phone_Number { get; set; }
         public string? Address { get; set; }
+
     }
 }
 

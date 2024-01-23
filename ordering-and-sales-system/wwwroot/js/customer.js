@@ -124,8 +124,8 @@ function addCustomerSendData(addCustomerData) {
         body: JSON.stringify(addCustomerData)
     })
         .then(data => {
-            //location.reload();
-            console.log('Product added successfully:', data);
+            location.reload();
+            //console.log('Product added successfully:', data);
 
             // Optionally, perform actions after successful product addition
         })
