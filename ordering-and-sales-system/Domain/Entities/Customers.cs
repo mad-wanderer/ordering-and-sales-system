@@ -16,7 +16,7 @@
 
         public Customers(ICustomers customer)
         {
-            Customer_ID = customer.customerId;
+            Customer_ID = customer.Customer_ID;
             First_Name = customer.First_Name;
             Last_Name = customer.Last_Name;
             Email = customer.Email;

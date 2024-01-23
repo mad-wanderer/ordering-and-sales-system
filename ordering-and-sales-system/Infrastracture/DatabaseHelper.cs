@@ -12,7 +12,7 @@ namespace ordering_and_sales_system.Infrastracture
 
         public DatabaseHelper()
         {
-            string ConnectionString = "Server=localhost;Port=3307;Database=co_s_crochet;User=root;Password=;";
+            string ConnectionString = "Server=localhost;Port=3306;Database=order_sales_system;User=root;Password=;";
             _connectionManager = new DatabaseConnectionManager(ConnectionString);
             _connection = _connectionManager.Connection;
         }

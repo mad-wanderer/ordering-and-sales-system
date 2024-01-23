@@ -8,6 +8,5 @@
         public string? Email { get; set; }
         public string? Phone_Number { get; set; }
         public string? Address { get; set; }
-        string? customerId { get; }
     }
 }
