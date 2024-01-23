@@ -6,29 +6,29 @@
 
         public Customers(string customerID, string firstName, string lastName, string email, string phoneNumber, string address)
         {
-            CustomerID = customerID;
-            FirstName = firstName;
-            LastName = lastName;
+            Customer_ID = customerID;
+            First_Name = firstName;
+            Last_Name = lastName;
             Email = email;
-            PhoneNumber = phoneNumber;
+            Phone_Number = phoneNumber;
             Address = address;
         }
 
         public Customers(ICustomers customer)
         {
-            CustomerID = customer.Customer_ID;
-            FirstName = customer.First_Name;
-            LastName = customer.Last_Name;
+            Customer_ID = customer.customerId;
+            First_Name = customer.First_Name;
+            Last_Name = customer.Last_Name;
             Email = customer.Email;
-            PhoneNumber = customer.Phone_Number;
+            Phone_Number = customer.Phone_Number;
             Address = customer.Address;
         }
 
-        public string? CustomerID { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
+        public string? Customer_ID { get; set; }
+        public string? First_Name { get; set; }
+        public string? Last_Name { get; set; }
         public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
+        public string? Phone_Number { get; set; }
         public string? Address { get; set; }
     }
 }
