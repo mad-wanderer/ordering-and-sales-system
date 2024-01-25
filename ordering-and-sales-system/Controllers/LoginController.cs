@@ -15,7 +15,6 @@ namespace ordering_and_sales_system.Controllers
         [HttpPost]
         public IActionResult Login(LoginModel login)
         {
-            PendingOrdersService pendingOrdersService = new PendingOrdersService(string.Empty);
 
             return RedirectToAction("Dashboard", "Home");
 

@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     showAddCustomerPopup();
-
+    setupEditButton();
 })
 
 function showAddCustomerPopup() {
@@ -17,8 +17,6 @@ function showAddCustomerPopup() {
         openPopup('Add Customer');
 
 
-        closeAddCustomerPopup();
-        closePopupUponSubmission();
     });
 }
 
@@ -42,7 +40,6 @@ function handleEditButtonClick(row) {
 
     // Display the pop-up
     openPopup('Edit Customer', true);
-}
 
 // Function to open popup
 function openPopup(title, isEdit = false) {
@@ -71,9 +68,6 @@ function closeAddCustomerPopup() {
     });
 }
 
-
-
-
 function closePopupUponSubmission() {
     // Event listener for form submission button
     document.getElementById('add-btn2').addEventListener('click', function () {
@@ -94,25 +88,12 @@ function closePopupUponSubmission() {
             Address: Address
         }
 
-
         addCustomerSendData(addCustomerData);
         // Close the popup
         document.querySelector('.pop-up').classList.remove('active');
     });
 }
 
-
-
-function setupEditButton() {
-    // Attach click event listeners to each edit button in the table
-    document.querySelectorAll('.edit-btn').forEach((editButton) => {
-        editButton.addEventListener('click', () => {
-            // Get the corresponding table row
-            const row = editButton.closest('tr');
-            handleEditButtonClick(row);
-        });
-    });
-}
 
 function addCustomerSendData(addCustomerData) {
     console.log(addCustomerData)
@@ -128,66 +109,6 @@ function addCustomerSendData(addCustomerData) {
             //console.log('Product added successfully:', data);
 
             // Optionally, perform actions after successful product addition
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-}
-
-
-
-
-    
-/*function setupAddCustomerBtn() {
-    document.querySelector('#add-btn2').addEventListener('click', function (e) {
-        e.preventDefault();
-        // Retrieve input values
-        var firstName = document.getElementById('First_Name').value;
-        var lastName = document.getElementById('Last_Name').value;
-        var email = document.getElementById('Email').value;
-        var contact = document.getElementById('Phone_Number').value;
-        var address = document.getElementById('Address').value;
-
-        var addedCustomerData = {
-            Customer_ID: "",
-            First_Name: firstName,
-            Last_Name: lastName,
-            Email: email,
-            Phone_Number: contact,
-            Address: address
-        };
-
-        // Assuming isError is defined somewhere in your code
-        if (isError == false) {
-            addCustomerFormSendData(addedCustomerData);
-            addCustomerPopupOverlay.remove();
-        }
-
-        // Handle exit from edit
-    });
-
-    // Remove the edit pop-up without submitting
-    document.getElementById('exitPopup').addEventListener('click', function () {
-        addCustomerPopupOverlay.remove();
-    });
-}*/
-
-
-        
-
-
-/*function addCustomerFormSendData(addedCustomerData) {
-    fetch('/Home/AddCustomer', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(addedCustomerData)
-    })
-        .then(data => {
-            location.reload();
-            console.log('Customer added successfully:', data);
-            // Optionally, perform actions after successful customer addition
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
