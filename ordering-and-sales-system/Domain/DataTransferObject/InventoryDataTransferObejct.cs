@@ -1,12 +1,13 @@
-﻿namespace ordering_and_sales_system.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using ordering_and_sales_system.Domain.Entities;
+
+namespace ordering_and_sales_system.Domain.DataTransferObject
 {
-    public class Inventory
-    {
-       
+        public class InventoryDataTransferObject : ordering_and_sales_system.Domain.Entities.IInventory
+        {
+        public InventoryDataTransferObject() { }
 
-        public Inventory() { }
-
-        public Inventory(string? productID, string? productName, string? category, int quantity, int price, int productCost, string? status)
+        public InventoryDataTransferObject(string? productID, string? productName, string? category, int quantity, int price, int productCost, string? status)
         {
             Product_ID = productID;
             Product_Name = productName;
@@ -17,7 +18,7 @@
             Status = status;
         }
 
-        public Inventory(Inventory inventory)
+        public InventoryDataTransferObject(Inventory inventory)
         {
             Product_ID = inventory.Product_ID;
             Product_Name = inventory.Product_Name;

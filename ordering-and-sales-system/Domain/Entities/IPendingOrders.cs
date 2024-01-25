@@ -2,14 +2,14 @@
 {
     public interface IPendingOrders
     {
-        public string? OrderID { get; set; }
-        public string? ProductID { get; set; }
-        public string? CustomerID { get; set; }
-        public string? ProductName { get; set; }
+        public string? Order_ID { get; set; }
+        public string? Product_ID { get; set; }
+        public string? Customer_ID { get; set; }
+        public string? Product_Name { get; set; }
         public string? Color { get; set; }
         public int Quantity { get; set; }
         public int Price { get; set; }
-        public DateTime? TransactionDate { get; set; }
+        public DateTime? Transaction_Date { get; set; }
         public string? Status { get; set; }
         public int Total { get; set; }
     }

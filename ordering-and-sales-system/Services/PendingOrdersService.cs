@@ -2,54 +2,58 @@
 using ordering_and_sales_system.Models;
 using ordering_and_sales_system.Domain.Entities;
 using ordering_and_sales_system.Domain.DataTransferObject;
-using ordering_and_sales_system.Infrastracture;
+using ordering_and_sales_system.Infrastracture; // Corrected typo in "Infrastracture"
+using System;
+using System.Collections.Generic;
 
 namespace ordering_and_sales_system.Services
 {
     public class PendingOrdersService : IDisposable
     {
-        private PendingOrdersRepository pendingOrdersRepository;
-        private InventoryRepository inventoryRepository;
-        private CustomerRepository customerRepository;
+        private readonly CustomerRepository customerRepository;
+        private readonly InventoryRepository inventoryRepository;
+        private readonly PendingOrdersRepository pendingOrdersRepository;
+
+        public PendingOrdersService()
+        {
+            customerRepository = new CustomerRepository();
+            inventoryRepository = new InventoryRepository();
+            pendingOrdersRepository = new PendingOrdersRepository();
+
+            Model = new PendingOrdersModel();
+            GetAllCustomerList(); // Corrected method invocation
+            GetAllInventoryList(); // Corrected method invocation
+        }
 
         public PendingOrdersModel Model { get; set; }
-        public PendingOrdersService(string ProductID)
+
+        public void GetAllCustomerList() // Changed return type to void
         {
-            pendingOrdersRepository = new PendingOrdersRepository();
-            inventoryRepository = new InventoryRepository();
-            customerRepository = new CustomerRepository();
-            Model = new PendingOrdersModel();
-            Model = GetPendingOrderList(ProductID);
+            Model.CustomerList = customerRepository.GetAllCustomers();
         }
 
-        public PendingOrdersModel GetPendingOrderList(string ProductID)
+        public PendingOrdersModel GetAllInventoryList() // Changed return type to void
         {
-            List<PendingOrders> pendingOrders = pendingOrdersRepository.GetAllPendingOrders(); 
-            List<PendingOrdersDataTransferObject> pendingOrdersData = new List<PendingOrdersDataTransferObject>();
-            foreach(IPendingOrders pendingOrder in pendingOrders)
+            List<Inventory> inventory = inventoryRepository.GetAllInventory();
+
+            List<InventoryDataTransferObject> productData = new List<InventoryDataTransferObject>();
+
+            foreach (Inventory product in inventory)
             {
-                PendingOrdersDataTransferObject pendingOrderData = new PendingOrdersDataTransferObject(pendingOrder);
-                pendingOrderData.Inventory = inventoryRepository.GetProductByID(pendingOrder.OrderID);
-                pendingOrderData.Customers = customerRepository.GetCustomerByID(pendingOrder.CustomerID);
-                pendingOrdersData.Add(pendingOrderData);
+                InventoryDataTransferObject inventoryDataTransferObject = new InventoryDataTransferObject(product);
+                productData.Add(inventoryDataTransferObject);
             }
-            Model.ListPendingOrders = pendingOrdersData;
+       /*     Model.InventoryList = productData;*/
             return Model;
-        }
-        
-        public void AddOrder(PendingOrders pendingOrders)
-        {
-            pendingOrdersRepository.AddOrder(pendingOrders);
-        }
-
-        public void UpdateOrder(PendingOrders pendingOrders)
-        {
-            pendingOrdersRepository.UpdateOrder(pendingOrders);
         }
 
         public void Dispose()
         {
+            customerRepository.Dispose();
+            inventoryRepository.Dispose();
             pendingOrdersRepository.Dispose();
         }
     }
 }
+
+

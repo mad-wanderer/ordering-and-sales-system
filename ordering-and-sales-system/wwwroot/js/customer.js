@@ -17,6 +17,8 @@ function showAddCustomerPopup() {
         openPopup('Add Customer');
 
 
+        closeAddCustomerPopup();
+        closePopupUponSubmission();
     });
 }
 
@@ -40,6 +42,9 @@ function handleEditButtonClick(row) {
 
     // Display the pop-up
     openPopup('Edit Customer', true);
+   /* closeAddCustomerPopup();
+    closePopupUponSubmission();*/
+}
 
 // Function to open popup
 function openPopup(title, isEdit = false) {
@@ -88,12 +93,25 @@ function closePopupUponSubmission() {
             Address: Address
         }
 
+
         addCustomerSendData(addCustomerData);
         // Close the popup
         document.querySelector('.pop-up').classList.remove('active');
     });
 }
 
+
+
+function setupEditButton() {
+    // Attach click event listeners to each edit button in the table
+    document.querySelectorAll('.edit-btn').forEach((editButton) => {
+        editButton.addEventListener('click', () => {
+            // Get the corresponding table row
+            const row = editButton.closest('tr');
+            handleEditButtonClick(row);
+        });
+    });
+}
 
 function addCustomerSendData(addCustomerData) {
     console.log(addCustomerData)
@@ -113,4 +131,24 @@ function addCustomerSendData(addCustomerData) {
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
-}*/
+}
+
+function updateCustomerSendData(updatedCustomerData) {
+    console.log(updatedCustomerData)
+    fetch('/Home/UpdateCustomer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedCustomerData)
+    })
+        .then(data => {
+            location.reload();
+            //console.log('Product added successfully:', data);
+
+            // Optionally, perform actions after successful product addition
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}

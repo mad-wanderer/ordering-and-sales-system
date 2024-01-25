@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ordering_and_sales_system.Models;
 using System.Text.Json;
-using ordering_and_sales_system.Domain.Entities;   
-
+using ordering_and_sales_system.Domain.Entities;
+using ordering_and_sales_system.Domain.DataTransferObject;
 
 namespace ordering_and_sales_system.Controllers
 {
@@ -24,7 +24,11 @@ namespace ordering_and_sales_system.Controllers
 
         public IActionResult Inventory()
         {
-            return View();
+            InventoryService inventoryService = new InventoryService();
+            InventoryModel inventoryModel = inventoryService.GetAllInventoryList();
+            inventoryService.Dispose();
+
+            return View(inventoryModel);
         }
 
         public IActionResult PendingOrders()
@@ -32,8 +36,28 @@ namespace ordering_and_sales_system.Controllers
             return View();
         }
 
-        [HttpGet]
-            public IActionResult TransactionHistory()
+     
+       /* public IActionResult GetPendingOrdersDataList()
+        {
+            PendingOrdersService pendingOrdersService = new PendingOrdersService();
+            List<PendingOrders> pendingOrdersList = new List<PendingOrders>();
+
+            foreach (PendingOrdersDataTransferObject pendingOrders in pendingOrdersService.Model.PendingOrdersList!)
+            {
+                pendingOrdersList.Add(new PendingOrders(pendingOrders));
+            }
+            List<Customers> customerList = pendingOrdersService.Model.CustomerList!;
+
+            var result = new
+            {
+                Products = productList,
+                Customers = customerList
+            };
+
+            return Ok(result);
+        }*/
+
+        public IActionResult TransactionHistory()
             {
                 TransactionHistoryService transactionHistoryService = new TransactionHistoryService();
                 TransactionHistoryModel transactionHistoryModel = transactionHistoryService.Model;
@@ -53,9 +77,9 @@ namespace ordering_and_sales_system.Controllers
 
         public IActionResult AddCustomer([FromBody] Customers customerData)
         {
-            
-            Debug.WriteLine("Here");
-            Debug.WriteLine(JsonSerializer.Serialize(customerData));
+
+            /*Debug.WriteLine("Here");
+            Debug.WriteLine(JsonSerializer.Serialize(customerData))*/;
             // Access service and then send the customerData into the AddCustomer function
             // Terminate connection
             CustomerService customerService = new CustomerService();
@@ -64,6 +88,20 @@ namespace ordering_and_sales_system.Controllers
 
             return Ok("Success");
         }
+
+        public IActionResult UpdateCustomer([FromBody] Customers customerData)
+        {
+            // Access service and then send the customerData into the UpdateCustomer function
+            // Terminate connection
+     
+            CustomerService customerService = new CustomerService();
+            customerService.UpdateCustomer(customerData);
+            customerService.Dispose();
+
+            return Ok("Success");
+        }
+
+
 
         public IActionResult OrderReport()
         {

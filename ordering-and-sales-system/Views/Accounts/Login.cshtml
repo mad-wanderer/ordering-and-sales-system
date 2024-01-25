@@ -1,43 +1,30 @@
-﻿@{
+﻿﻿@{
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<div class="login">
-<div class="logo">
-        <img src="images/finlogo.svg" id="logo">
-</div>
 
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form asp-action="Login" asp-controller="Login" method="post"> 
-                <h1>Sign In</h1>
-                <input type="email" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form asp-action="Login" asp-controller="Login" method="post">
-                <h1>Sign In</h1>
-                <input type="email" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Crochet with us!</h1>
-                    <p>This panel is exclusively designated for administrator log in.</p>
-                    <button class="hidden" id="login">Administrator</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Crochet with us!</h1>
-                    <p>This panel is designated for staff members to log in.</p>
-                    <button class="hidden" id="register">Staff</button>
-                </div>
-            </div>
-        </div>
+<div class="login">
+    <div class="title">
+        <h1>CO'S CROCHET</h1>
+        <h3>ORDERING AND SALES SYSTEM</h3>
     </div>
-</div>
+    <div class="login-form">
+            <form asp-action="Login" asp-controller="Login" method="post">
+            <h2>Administrator</h2>
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <label for="username" class="icon"><i class="fa-regular fa-user"></i></label>
+                    <input type="text" id="username" name="username" placeholder="Admin ID" >
+                </div>
+                <div class="input-wrapper">
+                    <label for="password" class="icon"><i class="fas fa-lock"></i></label>
+                    <input type="password" id="password" name="password" placeholder="Password"/> 
+                </div>
+
+                <button type="submit">Sign In</button>
+            </div>
+
+        </form>
+    </div>
+    <img src="~/images/Group.svg" alt="" class="bottom-left-image">
 </div>

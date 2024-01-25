@@ -4,49 +4,39 @@ using ordering_and_sales_system.Domain.Entities;
 
 namespace ordering_and_sales_system.Services
 {
-    public class InventoryService
+    public class InventoryService : IDisposable
     {
-        public InventoryModel Model { get; internal set; }
+        private InventoryRepository inventoryRepository;
 
-        internal void Dispose()
+
+        public InventoryService()
         {
-            throw new NotImplementedException();
+            inventoryRepository = new InventoryRepository();
+            Model = new InventoryModel();
+            Model = GetAllInventoryList();
         }
 
-        public class InventoryServices : IDisposable
+        public InventoryModel Model { get; set; }
+
+        public InventoryModel GetAllInventoryList()
         {
-            private InventoryRepository inventoryRepository;
+            Model.InventoryList = inventoryRepository.GetAllInventory();
+            return Model;
+        }
 
+        public void Dispose()
+        {
+            inventoryRepository.Dispose();
+        }
 
-            public InventoryServices()
-            {
-                inventoryRepository = new InventoryRepository();
-                Model = new InventoryModel();
-                Model = GetAllInventory();
-            }
+        public void AddProduct(Inventory inventory)
+        {
+            inventoryRepository.AddProduct(inventory);
+        }
 
-            public InventoryModel Model { get; set; }
-
-            public InventoryModel GetAllInventory()
-            {
-                Model.InventoryList = inventoryRepository.GetAllInventory();
-                return Model;
-            }
-
-            public void Dispose()
-            {
-                inventoryRepository.Dispose();
-            }
-
-            public void AddProduct(Inventory product)
-            {
-                inventoryRepository.AddProduct(product);
-            }
-
-            public void UpdateProduct(Inventory product)
-            {
-                inventoryRepository.UpdateProduct(product);
-            }
+        public void UpdateProduct(Inventory inventory)
+        {
+            inventoryRepository.UpdateProduct(inventory);
         }
     }
 }

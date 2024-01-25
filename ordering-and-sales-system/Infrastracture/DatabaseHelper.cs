@@ -1,7 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
-using System.Configuration;
+using ordering_and_sales_system.Configurations;
 using System.Data;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace ordering_and_sales_system.Infrastracture
 {
@@ -81,38 +82,61 @@ namespace ordering_and_sales_system.Infrastracture
         }
         public void UpdateRecord(string tableName, Entity entity)
         {
-            _connection.Open();
-            string queryType = "UPDATE ";
-            string setValues = " SET ";
-            string values = this.ConvertUpdateValuesToString(entity);
-            string whereClause = " WHERE ";
-            string constraints = this.GetIDConstraint(tableName, entity);
-            string terminator = ";";
-            string query = queryType + tableName + setValues + values + whereClause + constraints + terminator;
+            try
+            {
+                _connection.Open();
+                string queryType = "UPDATE ";
+                string setValues = " SET ";
+                string values = this.ConvertUpdateValuesToString(entity);
+                string whereClause = " WHERE ";
+                string constraints = this.GetIDConstraint(tableName, entity);
+                string terminator = ";";
+                string query = queryType + tableName + setValues + values + whereClause + constraints + terminator;
 
-            MySqlCommand command = new MySqlCommand(query, _connection);
-            command.ExecuteNonQuery();
-            _connection.Close();
+                MySqlCommand command = new MySqlCommand(query, _connection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                Console.WriteLine("Error updating record: " + ex.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         public string ConvertUpdateValuesToString(Entity entity)
+{
+    if (entity == null)
+    {
+        throw new ArgumentNullException(nameof(entity));
+    }
+
+    Type type = entity.GetType();
+    List<string> output = new List<string>();
+
+    // Use reflection to get properties and order them by name
+    List<PropertyInfo> properties = type.GetProperties().OrderBy(property => property.Name).ToList();
+
+    foreach (PropertyInfo property in properties)
+    {
+        // Skip properties with types other than string and exclude those ending with "ID"
+        if (property.PropertyType == typeof(string) && !property.Name.EndsWith("ID"))
         {
-            Type type = entity!.GetType();
-            List<string> output = new List<string>();
-            List<PropertyInfo> properties = type.GetProperties().OrderBy(property => property.Name).ToList();
-            foreach (PropertyInfo property in properties)
-            {
-                if (property.PropertyType == typeof(string) && !(property.Name.EndsWith("ID")))
-                {
-                    output.Add(property.Name + " = \'" + property.GetValue(entity) + "\'");
-                }
-                else
-                {
-                    output.Add(property.Name + " = " + property.GetValue(entity));
-                }
-            }
-            return String.Join(",", output);
+            // Use parameterized queries to prevent SQL injection
+            string value = property.GetValue(entity)?.ToString();
+            output.Add($"{property.Name} = @{property.Name}");
         }
+        else
+        {
+            output.Add($"{property.Name} = {property.GetValue(entity)}");
+        }
+    }
+
+    return string.Join(", ", output);
+}
 
         public string GetIDConstraint(string tableName, Entity entity)
         {

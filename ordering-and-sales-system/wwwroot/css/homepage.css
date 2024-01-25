@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,700;0,800;1,400;1,700&display=swap');
 
 * {
     margin: 0;
@@ -50,8 +50,8 @@
 .sidebar #out {
     position: fixed;
     bottom: 0;
-    /* background: rgba(202,177,216,0.1);
-    width: 270px; */
+     background: rgba(202,177,216,0.1);
+    width: 270px; 
 }
 
 .sidebar .menu .items a:hover {
