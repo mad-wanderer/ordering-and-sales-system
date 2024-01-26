@@ -30,14 +30,14 @@ namespace ordering_and_sales_system.Domain.Repositories
             DataTable dataTable = _databaseHelper.SelectRecord(tableName, constraints);
             DataRow row = dataTable.Rows[0];
             return new PendingOrders(
-                row["OrderID"].ToString()!,
-                row["ProductID"].ToString()!,
-                row["CustomerID"].ToString()!,
-                row["ProductName"].ToString()!,
+                row["Order_ID"].ToString()!,
+                row["Product_ID"].ToString()!,
+                row["Customer_ID"].ToString()!,
+                row["Product_Name"].ToString()!,
                 row["Color"].ToString()!,
                 int.Parse(row["Quantity"].ToString()!),
                 int.Parse(row["Price"].ToString()!),
-                DateTime.Parse(row["TransactionDate"].ToString()!),
+                DateTime.Parse(row["Transaction_Date"].ToString()!),
                 row["Status"].ToString()!,
                 int.Parse(row["Total"].ToString()!)
             );
@@ -50,14 +50,14 @@ namespace ordering_and_sales_system.Domain.Repositories
             foreach (DataRow row in dataTable.Rows)
             {
                 PendingOrders pendingOrder = new PendingOrders(
-                    row["OrderID"].ToString()!,
-                    row["ProductID"].ToString()!,
-                    row["CustomerID"].ToString()!,
-                    row["ProductName"].ToString()!,
+                    row["Order_ID"].ToString()!,
+                    row["Product_ID"].ToString()!,
+                    row["Customer_ID"].ToString()!,
+                    row["Product_Name"].ToString()!,
                     row["Color"].ToString()!,
                     int.Parse(row["Quantity"].ToString()!),
                     int.Parse(row["Price"].ToString()!),
-                    DateTime.Parse(row["TransactionDate"].ToString()!),
+                    DateTime.Parse(row["Transaction_Date"].ToString()!),
                     row["Status"].ToString()!,
                     int.Parse(row["Total"].ToString()!));
                     pendingOrders.Add(pendingOrder);

@@ -382,7 +382,8 @@ h2 {
     margin-bottom: 20px;
 }
 
-.pop-up .close-btn {
+.close-add-btn,
+.close-edit-btn, .close-btn {
     font-size: 25px;
     position: absolute;
     top: 12px;
@@ -435,7 +436,7 @@ h2 {
         width: 138px;
     }
 
-button#add-btn2 {
+#add-btn2, #edit-btn2 {
     background: var(--primary-color);
     color: white;
     outline: none;

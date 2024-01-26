@@ -1,9 +1,9 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-    showAddCustomerPopup();
+    setupAddCustomerPopup();
     setupEditButton();
 })
 
-function showAddCustomerPopup() {
+function setupAddCustomerPopup() {
     // Event listener for popup and form submission
     document.querySelector(".add-product .add-btn button").addEventListener("click", function () {
         // Reset form fields and set button text to "Add Customer"
@@ -14,70 +14,34 @@ function showAddCustomerPopup() {
         document.getElementById('address').value = '';
         document.querySelector('#add-btn2').innerText = 'Add Customer';
 
-        openPopup('Add Customer');
+        openAddPopup();
 
 
         closeAddCustomerPopup();
-        closePopupUponSubmission();
+        closeAddPopupUponSubmission();
     });
 }
 
-function handleEditButtonClick(row) {
-    // Get customer information from the table row
-    const firstName = row.querySelector('td:nth-child(2)').innerText;
-    const lastName = row.querySelector('td:nth-child(3)').innerText;
-    const email = row.querySelector('td:nth-child(4)').innerText;
-    const contactNumber = row.querySelector('td:nth-child(5)').innerText;
-    const address = row.querySelector('td:nth-child(6)').innerText;
-
-    // Populate the form fields
-    document.getElementById('fName').value = firstName;
-    document.getElementById('lName').value = lastName;
-    document.getElementById('email').value = email;
-    document.getElementById('contact').value = contactNumber;
-    document.getElementById('address').value = address;
-
-    // Set button text to "Save Edit"
-    document.querySelector('#add-btn2').innerText = 'Save Edit';
-
-    // Display the pop-up
-    openPopup('Edit Customer', true);
-   /* closeAddCustomerPopup();
-    closePopupUponSubmission();*/
-}
-
 // Function to open popup
-function openPopup(title, isEdit = false) {
-    const popup = document.querySelector('.pop-up');
-    const formTitle = document.querySelector('.pop-up h2');
-    const submitButton = document.querySelector('#add-btn2');
-
-    // Set form title
-    formTitle.innerText = title;
-
-    // Set button text to "Add Customer" for new entries
-    if (!isEdit) {
-        submitButton.innerText = 'Add Customer';
-    }
+function openAddPopup() {
+    const popup = document.getElementById('add-popup');
 
     // Open the popup
     popup.classList.add('active');
 }
 
-
 function closeAddCustomerPopup() {
     // Close button event listener
-    document.querySelector('.close-btn').addEventListener('click', function () {
+    document.querySelector('.close-add-btn').addEventListener('click', function () {
         // Close the popup
-        document.querySelector('.pop-up').classList.remove('active');
+        document.querySelector('#add-popup').classList.remove('active');
     });
 }
 
-function closePopupUponSubmission() {
+function closeAddPopupUponSubmission() {
+    var addBtn2 = document.getElementById('add-btn2');
     // Event listener for form submission button
-    document.getElementById('add-btn2').addEventListener('click', function () {
-        // Add your logic for form submission here
-
+    addBtn2.addEventListener('click', function () {
         var First_Name = document.getElementById('fName').value;
         var Last_Name = document.getElementById('lName').value;
         var Email = document.getElementById('email').value;
@@ -93,12 +57,13 @@ function closePopupUponSubmission() {
             Address: Address
         }
 
-
         addCustomerSendData(addCustomerData);
         // Close the popup
-        document.querySelector('.pop-up').classList.remove('active');
+        document.getElementById('add-popup').classList.remove('active');
     });
 }
+
+
 
 
 
@@ -110,6 +75,68 @@ function setupEditButton() {
             const row = editButton.closest('tr');
             handleEditButtonClick(row);
         });
+    });
+}
+
+
+function handleEditButtonClick(row) {
+    // Get customer information from the table row
+    const firstName = row.querySelector('td:nth-child(2)').innerText;
+    const lastName = row.querySelector('td:nth-child(3)').innerText;
+    const email = row.querySelector('td:nth-child(4)').innerText;
+    const contactNumber = row.querySelector('td:nth-child(5)').innerText;
+    const address = row.querySelector('td:nth-child(6)').innerText;
+
+    // Populate the form fields
+    document.getElementById('editfName').value = firstName;
+    document.getElementById('editlName').value = lastName;
+    document.getElementById('editemail').value = email;
+    document.getElementById('editcontact').value = contactNumber;
+    document.getElementById('editaddress').value = address;
+
+    // Display the pop-up
+    openEditPopup();
+    closeEditCustomerPopup();
+    closeEditPopupUponSubmission();
+}
+
+function openEditPopup() {
+    const popup = document.getElementById('edit-popup');
+    // Open the popup
+    popup.classList.add('active');
+}
+
+
+function closeEditCustomerPopup() {
+    // Close button event listener
+    document.querySelector('.close-edit-btn').addEventListener('click', function () {
+        // Close the popup
+        document.querySelector('#edit-popup').classList.remove('active');
+    });
+}
+
+function closeEditPopupUponSubmission() {
+    var addBtn2 = document.getElementById('edit-btn2');
+    // Event listener for form submission button
+    addBtn2.addEventListener('click', function () {
+        var First_Name = document.getElementById('editfName').value;
+        var Last_Name = document.getElementById('editlName').value;
+        var Email = document.getElementById('editemail').value;
+        var Phone_Number = document.getElementById('editcontact').value;
+        var Address = document.getElementById('editaddress').value;
+
+        var editCustomerData = {
+            Customer_ID: "",
+            First_Name: First_Name,
+            Last_Name: Last_Name,
+            Email: Email,
+            Phone_Number: Phone_Number,
+            Address: Address
+        }
+
+        updateCustomerSendData(editCustomerData);
+        // Close the popup
+        document.getElementById('edit-popup').classList.remove('active');
     });
 }
 
@@ -134,6 +161,8 @@ function addCustomerSendData(addCustomerData) {
 }
 
 function updateCustomerSendData(updatedCustomerData) {
+    console.log("update")
+ /*   console.log(updatedCustomerData)*/
     console.log(updatedCustomerData)
     fetch('/Home/UpdateCustomer', {
         method: 'POST',

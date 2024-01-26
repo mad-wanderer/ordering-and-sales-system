@@ -80,6 +80,7 @@ namespace ordering_and_sales_system.Infrastracture
             _connection.Close();
             return dataTable;
         }
+
         public void UpdateRecord(string tableName, Entity entity)
         {
             try

@@ -40,39 +40,69 @@
             </div>
           </div>
           <!-- create transaction pop-up -->
-          <div class="pop-up">
-            <div class="close-btn">
-              ×
-            </div>
+        <div class="pop-up" id="add-popup">
+            <div class="close-add-btn">×</div>
 
             <div class="add-form">
-              <h2>Add Customer</h2>
-              <div class="row">
-                <div class="product-form">
-                  <input type="text" id="fName" placeholder="First Name"> <label for="fName">First Name</label>
+                <h2>Add Customer</h2>
+                <div class="row">
+                    <div class="product-form">
+                        <input type="text" id="fName" placeholder="First Name"> <label for="fName">First Name</label>
+                    </div>
+                    <div class="product-form">
+                        <input type="text" id="lName" placeholder="Last Name"> <label for="lName">Last Name</label>
+                    </div>
                 </div>
-                <div class="product-form">
-                  <input type="text" id="lName" placeholder="Last Name"> <label for="lName">Last Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="product-form">
-                  <input type="text" id="email" placeholder="Email"> <label for="email">Email</label>
-                </div>
-                <div class="product-form">
-                  <input type="text" id="contact" placeholder="Contact Number"> <label for="contact">Contact Number</label>
-                </div>
-              </div>
-
-                <div class="product-form">
-                  <input type="text" id="address" placeholder="Address"> <label for="address">Address</label>
+                <div class="row">
+                    <div class="product-form">
+                        <input type="text" id="email" placeholder="Email"> <label for="email">Email</label>
+                    </div>
+                    <div class="product-form">
+                        <input type="text" id="contact" placeholder="Contact Number"> <label for="contact">Contact Number</label>
+                    </div>
                 </div>
 
-              <div class="product-form">
-                <button type="submit" id="add-btn2">Add Customer</button>
-              </div>
+                <div class="product-form">
+                    <input type="text" id="address" placeholder="Address"> <label for="address">Address</label>
+                </div>
+
+                <div class="product-form">
+                    <button type="submit" id="add-btn2">Add Customer</button>
+                </div>
             </div>
-          </div>
+        </div>
+
+        <div class="pop-up" id="edit-popup">
+            <div class="close-edit-btn">×</div>
+
+            <div class="edit-form">
+                <h2>Edit Customer</h2>
+                <div class="row">
+                    <div class="product-form">
+                        <input type="text" id="editfName" placeholder="First Name"> <label for="editfName">First Name</label>
+                    </div>
+                    <div class="product-form">
+                        <input type="text" id="editlName" placeholder="Last Name"> <label for="editlName">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="product-form">
+                        <input type="text" id="editemail" placeholder="Email"> <label for="editemail">Email</label>
+                    </div>
+                    <div class="product-form">
+                        <input type="text" id="editcontact" placeholder="Contact Number"> <label for="editcontact">Contact Number</label>
+                    </div>
+                </div>
+
+                <div class="product-form">
+                    <input type="text" id="editaddress" placeholder="Address"> <label for="editaddress">Address</label>
+                </div>
+
+                <div class="product-form">
+                    <button type="submit" id="edit-btn2">Edit Customer</button>
+                </div>
+            </div>
+        </div>
         </div>
 
         <!-- table -->

@@ -21,15 +21,15 @@ namespace ordering_and_sales_system.Domain.Repositories
 
         public TransactionHistory GetTransactionHistoryByID(string transactionId)
         {
-            string constraints = "TransactionID = " + transactionId;
+            string constraints = "Transaction_ID = " + transactionId;
 
             DataTable dataTable = _databaseHelper.SelectRecord(tableName, constraints);
             DataRow dataRow = dataTable.Rows[0];
             return new TransactionHistory(
-                dataRow["TransactionID"].ToString()!,
-                dataRow["OrderID"].ToString()!,
-                DateTime.Parse(dataRow["TransactionDate"].ToString()!),
-                dataRow["OrderStatus"].ToString()!
+                dataRow["Transaction_ID"].ToString()!,
+                dataRow["Order_ID"].ToString()!,
+                DateTime.Parse(dataRow["Transaction_Date"].ToString()!),
+                dataRow["Order_Status"].ToString()!
                 );
         }
 
@@ -41,10 +41,10 @@ namespace ordering_and_sales_system.Domain.Repositories
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 TransactionHistory transactionHistory = new TransactionHistory (
-                        dataTable.Rows[i]["TransactionID"].ToString()!,
-                        dataTable.Rows[i]["OrderID"].ToString()!,
-                        DateTime.Parse(dataTable.Rows[i]["TransactionDate"].ToString()!),
-                        dataTable.Rows[i]["OrderStatus"].ToString()!
+                        dataTable.Rows[i]["Transaction_ID"].ToString()!,
+                        dataTable.Rows[i]["Order_ID"].ToString()!,
+                        DateTime.Parse(dataTable.Rows[i]["Transaction_Date"].ToString()!),
+                        dataTable.Rows[i]["Order_Status"].ToString()!
                     );
 
                 transactList.Add( transactionHistory );

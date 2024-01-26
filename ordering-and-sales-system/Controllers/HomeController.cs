@@ -79,7 +79,7 @@ namespace ordering_and_sales_system.Controllers
         {
 
             /*Debug.WriteLine("Here");
-            Debug.WriteLine(JsonSerializer.Serialize(customerData))*/;
+            Debug.WriteLine(JsonSerializer.Serialize(customerData))*/
             // Access service and then send the customerData into the AddCustomer function
             // Terminate connection
             CustomerService customerService = new CustomerService();
@@ -93,7 +93,7 @@ namespace ordering_and_sales_system.Controllers
         {
             // Access service and then send the customerData into the UpdateCustomer function
             // Terminate connection
-     
+            Debug.WriteLine(JsonSerializer.Serialize(customerData));
             CustomerService customerService = new CustomerService();
             customerService.UpdateCustomer(customerData);
             customerService.Dispose();
